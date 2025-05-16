@@ -14,7 +14,7 @@ import java.io.IOException;
 //value chỉ định đường dẫn URL  mà servlet sẽ lắng nghe.
 // Khi người dùng truy cập vào URL "/home-servlet", servlet này sẽ được gọi và thực thi.
 
-@WebServlet(name = "homeServlet", value = "/home-servlet")
+@WebServlet(name = "homeServlet", value ="/home")
 public class HomeServlet extends HttpServlet {
     /* TẠO NHANH PHƯƠNG THỨC doGet và doPost:
    - Cách 1:
