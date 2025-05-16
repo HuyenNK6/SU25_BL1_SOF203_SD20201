@@ -7,7 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-
+//value = {"/login", "/ket-qua"}: Đây là một mảng các URL patterns mà servlet này sẽ xử lý.
+// Khi người dùng truy cập vào một trong các URL này, servlet loginServlet sẽ được gọi để xử lý yêu cầu.
 @WebServlet(name = "loginServlet", value = {"/login","/ket-qua"})
 public class LoginServlet extends HttpServlet {
 
