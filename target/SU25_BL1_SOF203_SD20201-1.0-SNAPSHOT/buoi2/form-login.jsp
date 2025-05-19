@@ -10,6 +10,12 @@
 <head>
     <title>Form Đăng nhập</title>
 </head>
+<%--    Form Control
+        @action: địa chỉ URL nhận dữ liệu form khi nhấp nút submit
+        @method: hình thức gửi dữ liệu form, có 2 giá trị
+             -   GET: Tạo chuỗi truy vấn và đính kèm URL của @action
+             -   POST: Mở kênh truyền thông ngầm gửi dữ liệu lên server
+    --%>
 <body>
     <h1> ${message}</h1>
     <form action="/ket-qua" method="post">
