@@ -20,6 +20,7 @@
             <th>Tuổi</th>
             <th>Giới tính</th>
             <th>Địa chỉ</th>
+            <th>Action</th>
         </tr>
         <c:forEach items="${lstSVs}" var="sv" varStatus="i">
             <tr>
@@ -29,6 +30,11 @@
                 <td> ${sv.tuoi} </td>
                 <td> ${sv.gioiTinh} </td> <%--load lên Nam nữ => tự làm nhé ahihi:D--%>
                 <td> ${sv.diaChi} </td>
+                <td>
+                    <a href="/sinh-vien/detail?mssv=${sv.mssv}">Detail</a>
+                    <a href="/sinh-vien/view-update">Update</a>
+                    <a href="/sinh-vien/remove">Delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

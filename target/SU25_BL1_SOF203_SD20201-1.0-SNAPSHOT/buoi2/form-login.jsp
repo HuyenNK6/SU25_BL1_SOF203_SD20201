@@ -18,7 +18,7 @@
     --%>
 <body>
     <h1> ${message}</h1>
-    <form action="/ket-qua" method="post">
+    <form action="/ket-qua" method="get">
         <div class="container">
             <p name="error" style="color: red">${error}</p>
             <label>Username</label><br>

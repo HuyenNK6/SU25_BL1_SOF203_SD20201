@@ -23,4 +23,12 @@ public class SinhVienService {
     public void addSV(SinhVien sv){
         lstSVs.add(sv);
     }
+    public SinhVien searchSVByMSSV(String mssv){
+        for (SinhVien sv: lstSVs) {
+            if(sv.getMssv().equalsIgnoreCase(mssv)){
+                return sv;
+            }
+        }
+        return  null;
+    }
 }
