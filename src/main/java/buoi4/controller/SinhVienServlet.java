@@ -41,6 +41,7 @@ public class SinhVienServlet extends HttpServlet {
 
         }else if(uri.contains("view-add")){
             //gọi chức năng view-add
+            this.viewAdd(req,resp);
         }
     }
    private void getAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,9 +58,41 @@ public class SinhVienServlet extends HttpServlet {
         req.setAttribute("sv", sv);
         req.getRequestDispatcher("/buoi4/view-detail.jsp").forward(req,resp);
     }
+    private void viewAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/buoi4/view-add.jsp").forward(req,resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.doPost(req, resp);
+        String uri= req.getRequestURI();
+        if(uri.contains("add")){
+            //gọi chức năng add
+            this.addSV(req,resp);
+        }else if(uri.contains("update")){
+            //gọi chức năng update
+        }
+    }
+    private void addSV(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //1. lấy toàn bộ thông từ tràn view-add.jsp
+        String mssv = req.getParameter("mssv");
+        String ten = req.getParameter("ten");
+        String tuoi = req.getParameter("tuoi");
+        String diaChi = req.getParameter("diaChi");
+        String gioiTinh = req.getParameter("gioiTinh");
+
+        //2. tạo đối tượng SV mới từ thông tin vừa lấy đc
+        //tìm hiểu Builder
+        SinhVien sv = new SinhVien(
+                mssv,
+                ten,
+                Integer.valueOf(tuoi),
+                Boolean.valueOf(gioiTinh),
+                diaChi
+               );
+        //3. thêm đối tượng vào danh sách
+        service.addSV(sv);
+        //4. get all
+        this.getAll(req, resp);
+
     }
 }

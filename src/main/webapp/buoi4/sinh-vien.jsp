@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<button><a href="/sinh-vien/view-add">Thêm mới SV</a></button>
     <table>
         <tr>
             <th>STT</th>

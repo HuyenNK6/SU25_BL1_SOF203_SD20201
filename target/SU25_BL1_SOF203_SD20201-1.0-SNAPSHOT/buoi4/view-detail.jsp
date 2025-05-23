@@ -15,7 +15,7 @@
 <label>MSSV: </label> ${sv.mssv}<br>
     <label>Tên: </label> ${sv.ten}<br>
     <label>Tuổi: </label> ${sv.tuoi}<br>
-    <label>Giới tính: </label> ${sv.gioiTinh ? "Nam":"Nữ"}<br>
+    <label>Giới tính: </label> ${sv.gioiTinh ? "Nữ":"Nam"}<br>
     <label>Địa chỉ: </label> ${sv.diaChi}
 </body>
 </html>
