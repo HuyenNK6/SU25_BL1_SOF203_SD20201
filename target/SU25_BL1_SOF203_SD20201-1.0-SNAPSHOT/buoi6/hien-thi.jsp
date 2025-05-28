@@ -1,4 +1,4 @@
-<%--
+<%@ page import="buoi6.entity.TraSua" %><%--
   Created by IntelliJ IDEA.
   User: Huyen
   Date: 5/28/2025
@@ -12,12 +12,32 @@
     <title>Title</title>
 </head>
 <body>
+
+<%
+    TraSua ts = (TraSua) request.getAttribute("ts");
+//    String thuongHieuSelected = ts.getThuongHieu(); => xảy ra lỗi do ts null trong TH mới chạy
+    String thuongHieuSelected = "Tocotoco";
+    if(ts!=null){
+        thuongHieuSelected =ts.getThuongHieu();
+    }
+%>
     <form action="/tra-sua/hien-thi" method="post">
         <label>Mã: </label><input name="ma" value="${ts.ma}" required><br>
         <label>Vị: </label><input name="vi" value="${ts.vi}" required><br>
         <label>Giá: </label><input name="gia" value="${ts.gia}" required><br>
         <label>Size: </label><input name="size" value="${ts.size}" required><br>
-        <label>Thương hiệu: </label><input name="thuongHieu" value="${ts.thuongHieu}" required><br>
+        <label>Thương hiệu: </label>
+        <%--<input name="thuongHieu" value="${ts.thuongHieu}" required><br>--%>
+        <%--        Thẻ <%= %> trong JSP được gọi là Expression Tag (Thẻ biểu thức).
+Thẻ này cho phép bạn chèn và hiển thị trực tiếp giá trị của một biểu thức Java vào trong nội dung HTML của trang JSP.
+Các biểu thức này sẽ được đánh giá và kết quả của chúng sẽ được chèn vào vị trí của thẻ trong HTML.--%>
+        <select name="thuongHieu">
+            <option value="Tocotoco" <%=thuongHieuSelected.equalsIgnoreCase("Tocotoco") ? "selected": ""%>>Tocotoco</option>
+            <option value="DingTea" <%=thuongHieuSelected.equalsIgnoreCase("DingTea") ? "selected": ""%>>DingTea</option>
+            <option value="Highland" <%=thuongHieuSelected.equalsIgnoreCase("Highland") ? "selected": ""%>>Highland</option>
+            <option value="The Coffee House" <%=thuongHieuSelected.equalsIgnoreCase("The Coffee House") ? "selected": ""%>>The Coffee House</option>
+            <option value="Mixue" <%=thuongHieuSelected.equalsIgnoreCase("Mixue") ? "selected": ""%>>Mixue</option>
+        </select><br>
         <button type="submit" name="action" value="add">Add</button>
         <button type="submit" name="action" value="update">Update</button>
     </form>
@@ -35,6 +55,7 @@
             <tr>
                 <td>${i.index}</td>
                 <td>${ts.ma}</td>
+                <td>${ts.vi}</td>
                 <td>${ts.gia}</td>
                 <td>${ts.size}</td>
                 <td>${ts.thuongHieu}</td>

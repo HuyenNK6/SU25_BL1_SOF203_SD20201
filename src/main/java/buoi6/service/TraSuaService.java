@@ -35,4 +35,7 @@ public class TraSuaService {
         }
         return null;
     }
+    public void addTS(TraSua ts){
+        listTS.add(ts);
+    }
 }
