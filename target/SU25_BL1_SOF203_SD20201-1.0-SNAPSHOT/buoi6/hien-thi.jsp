@@ -61,7 +61,7 @@ Các biểu thức này sẽ được đánh giá và kết quả của chúng s
                 <td>${ts.thuongHieu}</td>
                 <td>
                     <a href="/tra-sua/chi-tiet?ma=${ts.ma}">Detail</a>
-                    <a href="/tra-sua/xoa?ma=${ts.ma}">Detail</a>
+                    <a href="/tra-sua/xoa?ma=${ts.ma}">Remove</a>
                 </td>
             </tr>
         </c:forEach>
